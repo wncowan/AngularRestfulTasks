@@ -7,6 +7,8 @@ var app = express();
 //Express setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static( __dirname + '/angularTasksApp/dist/angularTasksApp' ));
+
 
 //Mongoose setup
 mongoose.connect('mongodb://localhost/task_api_db');
