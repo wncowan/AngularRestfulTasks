@@ -11,7 +11,7 @@ app.use(express.static( __dirname + '/angularTasksApp/dist/angularTasksApp' ));
 
 
 //Mongoose setup
-mongoose.connect('mongodb://localhost/task_api_db');
+mongoose.connect('mongodb://localhost/new_task_api_db');
 var Schema = mongoose.Schema;
 
 var TaskSchema = new mongoose.Schema({
@@ -28,6 +28,7 @@ var Task = mongoose.model('Task');
 //Routes
 //Index
 app.get('/tasks/', function(req, res) {
+    console.log("made it here!!!~~~")
     Task.find(function(err,tasks) {
         if(err) {
             res.json({
@@ -35,7 +36,7 @@ app.get('/tasks/', function(req, res) {
                 result: err
             });
         } else {
-            res.json(tasks);
+            res.json({tasks});
         }
     });
 });
